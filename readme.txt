@@ -1,3 +1,2 @@
-there are nothing
-
-第二次编辑
+这几天忽然就对canvas感兴趣了
+就试着用它做了一些动画

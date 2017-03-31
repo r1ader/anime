@@ -52,8 +52,8 @@
             y = 400+y2*Math.sin(prec/5)+ y2 * Math.sin(prec / bochang[i] + xiangwei[i]);
             ctx.fillRect(x + 50 * xiangwei[i], y, 2, 2);
         }
-        ctx.fillStyle = "rgba(0,0,0,0.04)";
-        ctx.fillRect(0, 0, 4000, 900);
+//        ctx.fillStyle = "rgba(0,0,0,0.04)";
+//        ctx.fillRect(0, 0, 4000, 900);
         prec += 0.02;
         if (prec >= 100) {
             clearInterval(time);
