@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #main {
+            /*width: 160px;*/
+            /*height: 100px;*/
+            border: 1px solid #000000;
+        }
+
+        #main2 {
+            /*width: 160px;*/
+            /*height: 100px;*/
+            border: 1px solid #000000;
+        }
+    </style>
+
+</head>
+
+<body>
+<canvas id="main" width="4000" height="900"></canvas>
+<h1 id="test"></h1>
+</body>
+<script>
+    var c = document.getElementById("main");
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, 4000, 900);
+    var x = -300;
+    var y = 400;
+    var time = window.requestAnimationFrame(a);
+    var test = document.getElementById('test');
+    var prec = 0;
+    var y2 = 100;
+    var num = 100;
+    var bochang = new Array(num);
+    var xiangwei = new Array(num);
+    for (var i = 0; i < num; i++) {
+        bochang[i] = 2 + 3 * Math.random();
+        xiangwei[i] = 2 * 3.14 * Math.random();
+    }
+    function a() {
+        requestAnimationFrame(a);
+        ctx.fillStyle = "white";
+        x += 2;
+        for (i = 0; i < num; i++) {
+            y = 400+y2*Math.sin(prec/5)+ y2 * Math.sin(prec / bochang[i] + xiangwei[i]);
+            ctx.fillRect(x + 50 * xiangwei[i], y, 2, 2);
+        }
+        ctx.fillStyle = "rgba(0,0,0,0.04)";
+        ctx.fillRect(0, 0, 4000, 900);
+        prec += 0.02;
+        if (prec >= 100) {
+            clearInterval(time);
+        }
+    }
+</script>
+</html>
