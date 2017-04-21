@@ -22,7 +22,6 @@
 </body>
 <script>
 
-
     var c = document.getElementById("main");
     var ctx = c.getContext("2d");
     ctx.fillStyle = "#000000";
