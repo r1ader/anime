@@ -4,7 +4,7 @@
 
 <head>
 
-    <meta charset="gbk"/>
+    <meta charset="utf-8"/>
 
     <title>HTML5 Canvas中处理鼠标事件</title>
 
@@ -91,7 +91,7 @@
         for (var i = 0; i < circles.length; i++) {
 
             ctx.lineTo(circles[i].x, circles[i].y);
-//            circles[i].x--;
+            if(i==selectedCircle) continue;
             if (circles[i].speed != 0.01) {
                 circles[i].speed++;
                 circles[i].y += circles[i].speed;
@@ -193,21 +193,7 @@
 
         canvas.onmousemove = function (e) {
 
-            var e = window.event || e
-
-            var rect = this.getBoundingClientRect();
-
-            var mouseX = e.clientX - rect.left;//获取鼠标在canvsa中的坐标
-
-            var mouseY = e.clientY - rect.top;
-
-            if (selectedCircle != undefined) {
-
-                var radius = circles[selectedCircle].radius;
-
-                circles[selectedCircle] = new Circle(mouseX, mouseY, radius,0); //改变选中圆的位置
-
-            }
+            var e = window.event || e;
 
             hoveredCircle = undefined;
 
