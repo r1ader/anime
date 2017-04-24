@@ -3,7 +3,9 @@
 * [鼠标交互式小球动画](http://www.r1ader.com/anime/click.php) 
 
 * [瞎写的动画](http://www.r1ader.com/anime/line.php)
-![](https://github.com/r1ader/anime/raw/master/img/xxddh.png =100x100)
+<br>
+<img src="https://github.com/r1ader/anime/raw/master/img/xxddh.png" width = "200" height = "150" alt="图片名称" align=center />
+
 
 * [瞎写的动画2](http://www.r1ader.com/anime/line2.php)
 
