@@ -10,12 +10,14 @@
 * [瞎写的动画2](http://www.r1ader.com/anime/line2.php)
 
 * [黑客帝国片头代码动画](http://www.r1ader.com/anime/matrix.php)
-<img src="https://github.com/r1ader/anime/raw/master/img/matrix.png" width = "300" height = "250" alt="图片名称" align=center />
+
+<a href="http://www.r1ader.com/anime/matrix.php"><img src="https://github.com/r1ader/anime/raw/master/img/matrix.png" width = "300" height = "250" alt="图片名称" align=center /></a>
 
 * [小球碰撞动画](http://www.r1ader.com/anime/zhuang.php)
 
 * [瞎写的动画3](http://www.r1ader.com/anime/white.php)
-<img src="https://github.com/r1ader/anime/raw/master/img/white.png" width = "300" height = "250" alt="图片名称" align=center />
+
+<a><img src="https://github.com/r1ader/anime/raw/master/img/matrix.png" width = "300" height = "250" alt="图片名称" align=center /></a>
 
 * [小动画](http://www.r1ader.com/anime/ball.php)
 
