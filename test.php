@@ -159,7 +159,7 @@
 
         canvas.onmousedown = function (e) {
 
-            var e = window.event || e
+            var e = window.event || e;
 
             var rect = this.getBoundingClientRect();
 
@@ -187,7 +187,7 @@
 
             }
 
-        }
+        };
 
 //鼠标移动
 
@@ -203,27 +203,35 @@
 
                 var circleY = circles[i].y;
 
+                var rect = this.getBoundingClientRect();
+
                 var radius = circles[i].radius;
 
+                var mouseX = e.clientX - rect.left;//获取鼠标在canvsa中的坐标
+
+                var mouseY = e.clientY - rect.top;
+
+                if(selectedCircle==i)
+                {
+                    circles[i].x=mouseX;
+                    circles[i].y=mouseY;
+                }
+
                 if (Math.pow(mouseX - circleX, 2) + Math.pow(mouseY - circleY, 2) < Math.pow(radius, 2)) {
-
                     hoveredCircle = i;
-
                     break;
-
                 }
 
             }
 
-        }
+        };
 
 //鼠标松开
 
         canvas.onmouseup = function (e) {
+            circles[selectedCircle].speed=0;
             selectedCircle = undefined;
         };
-
         setInterval(drawScene, 25);
-
     }
 </script>
