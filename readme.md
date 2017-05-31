@@ -25,4 +25,4 @@
 
 * [小球下落动画](http://www.r1ader.com/anime/test.php)
 
-* [为学校acm写的logo动画](http://www.r1ader.com/anime/cumt acm logo.html)
+* <a href="http://www.r1ader.com/anime/cumt acm logo.html">为学校acm写的logo动画</a>
