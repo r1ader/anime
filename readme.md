@@ -24,3 +24,5 @@
 * [载入等待时的转圈](http://www.r1ader.com/anime/load.php)
 
 * [小球下落动画](http://www.r1ader.com/anime/test.php)
+
+* <a href="http://www.r1ader.com/anime/cumt acm logo.html">为学校acm写的logo动画</a>
