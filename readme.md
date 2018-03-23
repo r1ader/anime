@@ -1,6 +1,6 @@
 下面是这些动画的链接：
 
-* [鼠标交互式小球动画](http://www.r1ader.com/anime/click.php) 
+* [鼠标交互式小球动画](https://r1ader.github.io/anime/click.html) 
 
 * [瞎写的动画](http://www.r1ader.com/anime/line.php)
 
