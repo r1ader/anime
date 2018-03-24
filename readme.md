@@ -12,6 +12,8 @@
 
 * [小球碰撞动画](https://r1ader.github.io/anime/zhuang.html)
 
+<a href="https://r1ader.github.io/anime/zhuang.html"><img src="https://github.com/r1ader/anime/raw/master/img/twoball.gif" width = "300" height = "250" alt="图片名称" align=center /></a>
+
 * [瞎写的动画3](https://r1ader.github.io/anime/white.html)
 
 <a href="https://r1ader.github.io/anime/white.html"><img src="https://github.com/r1ader/anime/raw/master/img/white.png" width = "300" height = "250" alt="图片名称" align=center /></a>
