@@ -14,6 +14,7 @@
 <a href="http://www.r1ader.com/anime/matrix.php"><img src="https://github.com/r1ader/anime/raw/master/img/matrix.png" width = "300" height = "250" alt="图片名称" align=center /></a>
 
 * [小球碰撞动画](http://www.r1ader.com/anime/zhuang.php)
+<a href="http://www.r1ader.com/anime/zhuang.php"><img src="https://github.com/r1ader/anime/raw/master/img/twoball.gif" width = "300" height = "250" alt="图片名称" align=center /></a>
 
 * [瞎写的动画3](http://www.r1ader.com/anime/white.php)
 
