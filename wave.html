@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--    <script src="js/Rcanvas/Rcanvas.js"></script>-->
+    <title>Document</title>
+    <style>
+        #main {
+            border: 1px solid black;
+        }
+
+        .dir {
+            height: 50px;
+            width: 50px;
+            font-size: 50px;
+            /*background-color: aqua;*/
+
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div id="w" class="dir" style="margin-left: 55px">w</div>
+    <div id="a" class="dir" style="display: inline-block">a</div>
+    <div id="s" class="dir" style="display: inline-block">s</div>
+    <div id="d" class="dir" style="display: inline-block">d</div>
+    <div id="f" class="dir" style="display: inline-block">F</div>
+    <div id="left" class="dir" style="display: inline-block;">L</div>
+</div>
+
+<canvas id="main" width="1200" height="900"></canvas>
+</body>
+<script>
+    var test = document.getElementById('test');
+    var c = document.getElementById('main');
+    var ctx = c.getContext('2d');
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, 1200, 900);
+    var passx = 0;
+    var passy = 0;
+    var mousex = 0;
+    var mousey = 0;
+    var keyw = 0;   //是否按下W建
+    var keya = 0;
+    var keys = 0;
+    var keyd = 0;
+    var keyf = 0;
+    var mouse_left = 0; //是否按下鼠标左键
+    var wave = new Array();
+    var speed = new Array();
+    var t_speed = new Array();
+    var init = function () {
+        for (var i = 1; i <= 1000; i++) {
+            wave[i] = 450;
+            speed[i] = 0;
+            t_speed[i] = 0;
+        }
+    };
+
+    var draw = function () {
+        ctx.fillStyle = 'black';
+        ctx.fillRect(0, 0, 1200, 900);
+        for (var i = 1; i <= 1000; i++) {
+            ctx.fillStyle = 'white';
+            ctx.fillRect(i, wave[i], 1, 1);
+        }
+    };
+
+    var touch_check = function () {
+        if (mouse_left && (passy - 450) * (mousey - 450) < 0) {
+            touch(mousex);
+            mouse_left = 0;
+        }
+    };
+
+    function touch(x) {
+        if(speed[x] === 0 && wave[x] === 450)
+        speed[x] = 10;
+    }
+
+
+    var wave_move = function () {
+        for (var i = 1; i <= 1000; i++) {
+            if (t_speed[i] === 0)
+                t_speed[i] = speed[i] + (wave[i] - 450) / -8;
+            t_speed[i] *= 0.98;
+            if (speed[i] >= 0.1) {
+                if (speed[i - 1] === 0 && wave[i - 1] === 450) {
+                    t_speed[i - 1] += speed[i] * 0.95;
+                }
+                if (speed[i + 1] === 0 && wave[i + 1] === 450) {
+                    t_speed[i + 1] += speed[i] * 0.95;
+                }
+            }
+        }
+        for (var i = 1; i <= 1000; i++) {
+            speed[i] = t_speed[i];
+            t_speed[i] = 0;
+            wave[i] += speed[i];
+            if (Math.abs(speed[i]) < 0.01 && Math.abs(wave[i]-450) < 0.01) {
+                speed[i] = 0;
+                wave[i]=450;
+            }
+        }
+    };
+
+    var gui = function () {
+        if (keya)
+            document.getElementById('a').style.backgroundColor = 'green';
+        else
+            document.getElementById('a').style.backgroundColor = 'white';
+        if (keyw)
+            document.getElementById('w').style.backgroundColor = 'green';
+        else
+            document.getElementById('w').style.backgroundColor = 'white';
+        if (keys)
+            document.getElementById('s').style.backgroundColor = 'green';
+        else
+            document.getElementById('s').style.backgroundColor = 'white';
+        if (keyd)
+            document.getElementById('d').style.backgroundColor = 'green';
+        else
+            document.getElementById('d').style.backgroundColor = 'white';
+        if (mouse_left)
+            document.getElementById('left').style.backgroundColor = 'green';
+        else
+            document.getElementById('left').style.backgroundColor = 'white';
+        if (keyf)
+            document.getElementById('f').style.backgroundColor = 'green';
+        else
+            document.getElementById('f').style.backgroundColor = 'white';
+
+    };
+
+    var pr = function () {
+        gui();      //显示此时操作
+        window.requestAnimationFrame(pr);
+        touch_check();
+        wave_move();
+        draw();
+    };
+
+    document.onkeydown = function (event) {
+        var e = e || event;
+//        console.log(e.keyCode);
+        var speed = 10;
+        if (e && e.keyCode == 87) { // 按 w
+            keyw = 1;
+        }
+        if (e && e.keyCode == 83) { // 按 s
+            keys = 1;
+        }
+        if (e && e.keyCode == 68) { // 按 d
+            keyd = 1;
+        }
+        if (e && e.keyCode == 65) { // 按 a
+            keya = 1;
+        }
+        if (e && e.keyCode == 70) { // 按 f
+            keyf = 1;
+        }
+
+    };
+
+    document.onkeyup = function (event) {
+        var e = e || event;
+        if (e && e.keyCode == 87) { // 松开 w
+            keyw = 0;
+        }
+        if (e && e.keyCode == 83) { // 松开 s
+            keys = 0;
+        }
+        if (e && e.keyCode == 68) { // 松开 d
+            keyd = 0;
+        }
+        if (e && e.keyCode == 65) { // 松开 a
+            keya = 0;
+        }
+        if (e && e.keyCode == 70) { // 按 f
+            keyf = 0;
+        }
+    };
+
+    document.onmousemove = function (e) {
+        e = e || window.event;
+        var rc = c.getBoundingClientRect();
+        mousex = Math.floor(e.clientX - rc.left);//获取鼠标在canvsa中的坐标
+        mousey = Math.floor(e.clientY - rc.top);
+//        console.log(me.dir);
+    };
+
+    document.onmousedown = function (e) {
+        mouse_left = 1;
+        passx = mousex;
+        passy = mousey;
+    };
+
+    document.onmouseup = function (e) {
+        mouse_left = 0;
+    };
+
+    init();
+
+    pr();
+</script>
+</html>
